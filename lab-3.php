@@ -1,33 +1,6 @@
 <?php
 $msg=$check="";
 $name = $agree ="";
-?>
-
-<html>
-    <body>
-        <h2>Registration form</h2>
-        <p><span style="color:red;">* required field</span></p>
-        <form action="<?php $_PHP_SELF ?>" method="POST">
-            Name : <input type="text" name="name" value="<?php ?>"><span style="color:red;">* <?php echo $msg;?></span><br>
-            
-            E-mail : <input type="email" name="email"><br>
-            Group# : <input type="text" name="gNum"><br>
-            Class details : <textarea name="class" rows="4" col="10"></textarea><br>
-            Gender : <input value="male" name="gender" type="radio">male <input value="female" name="gender" type="radio">female<br>
-            Select courses : <select name="course[]" id="" multiple>
-            <option value="php">PHP</option>
-            <option value="JS">JavaScript</option>
-            <option value="mysql">MYSQL</option>
-            <option value="html">HTML</option>
-            </select><br>
-            Agree : <input name="agree" type="checkbox" ><span style="color: red;">* <?php echo $check;?></span><br>
-            <input type="submit" value="submit">
-
-        </form>
-    </body>
-</html>
-
-<?php
 echo "<h1>your given values are : </h1>";
 echo "<br>";
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -57,4 +30,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             echo  "Courses : ".$value."<br>";
         }
     }
+?>
+
+<html>
+    <body>
+        <h2>Registration form</h2>
+        <p><span style="color:red;">* required field</span></p>
+        <form action="<?php $_PHP_SELF ?>" method="POST">
+            Name : <input type="text" name="name" value="<?php ?>"><span style="color:red;">* <?php echo $msg;?></span><br>
+            
+            E-mail : <input type="email" name="email"><br>
+            Group# : <input type="text" name="gNum"><br>
+            Class details : <textarea name="class" rows="4" col="10"></textarea><br>
+            Gender : <input value="male" name="gender" type="radio">male <input value="female" name="gender" type="radio">female<br>
+            Select courses : <select name="course[]" id="" multiple>
+            <option value="php">PHP</option>
+            <option value="JS">JavaScript</option>
+            <option value="mysql">MYSQL</option>
+            <option value="html">HTML</option>
+            </select><br>
+            Agree : <input name="agree" type="checkbox" ><span style="color: red;">* <?php echo $check;?></span><br>
+            <input type="submit" value="submit">
+
+        </form>
+    </body>
+</html>
+
+<?php
+
 ?>
