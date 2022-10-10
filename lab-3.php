@@ -1,10 +1,11 @@
 <?php
-$msg=$check="";
-$name = $agree ="";
+
 echo "<h1>your given values are : </h1>";
 echo "<br>";
 if($_SERVER["REQUEST_METHOD"] == "POST")
-    if(empty($_REQUEST['name'])){
+$msg=$check="";
+$name = $agree ="";
+    if(empty($_REQUEST['name']) || $_REQUEST['name'] != "/^([a-zA-Z' ]+)$/" ){
         $msg = "Name is Required";
     }else{
         $name =$_REQUEST['name'];
