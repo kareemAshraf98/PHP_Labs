@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $dbname ='lab5';
     $connect = mysqli_connect($hostname,$dbuser,$dbpass,$dbname);
 
-    $userName = $_POST['username'];
+    $username = $_POST['username'];
     $pass = $_POST['pass'];
 
     if(!$connect){
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "connected successfully";
     }
 
-    $sql = "SELECT * FROM register WHERE username = '$userName' and password = '$pass'";
+    $sql = "SELECT * FROM register WHERE username = '$username' and password = '$pass'";
     $returnVal = mysqli_query($connect, $sql);
 
     $row = mysqli_fetch_array($returnVal,MYSQLI_ASSOC);
@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
     if($count == 1){  
         // echo "<h1><center> Login successful </center></h1>";
-        header('location: http://localhost/labs/welcome.php');
+        header('location: http://localhost/labs/lab-5_welcome.php');
     }  
     else{  
         // var_dump($count);
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     mysqli_close($connect);
     session_destroy();
-    unset($_SESSION['page_count']);
+    setcookie("PHPSESSID", "5t1131i5i5rrdn16gpc144936m", time()-1);
 }
 ?>
 
